@@ -1,15 +1,13 @@
-terraform {
-  backend "s3" {
-    bucket = "pvbucketforcheck"
-    key    = "dev/terraform.tfstate"
-    region = "us-east-1"
-  }
+provider "aws" {
+  region     = "us-west-1"
+  access_key = "AKIAXXFEOCX4KK43GJW5"
+  secret_key = "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"
 }
 
 resource "aws_instance" "AWSServer" {
-  ami           = "ami-0747bdcabd34c712a"
+  ami           = "ami-027be456e3593dc56"
   instance_type = "t2.micro"
-  key_name      = "krishnakey"
+  key_name      = "jenkins"
   tags = {
     Name = "terraform_1"
   }
@@ -26,4 +24,3 @@ output "private_ip" {
 output "ec2_id" {
   value = "${aws_instance.AWSServer.id}"
 }
-
