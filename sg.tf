@@ -1,4 +1,4 @@
-
+/* 
 resource "aws_security_group" "my_sg_terra" {
   name        = "my_sg_terra"
   description = "Allow inbound traffic"
@@ -30,4 +30,4 @@ resource "aws_security_group" "my_sg_terra" {
   tags = {
     Name = "terra-sg"
   }
-}
+} */
