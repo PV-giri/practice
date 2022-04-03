@@ -1,4 +1,4 @@
- resource "aws_vpc" "my_vpc" {
+ /* resource "aws_vpc" "my_vpc" {
   cidr_block = "192.168.0.0/16"
 
   tags = {
@@ -59,4 +59,4 @@ output "vpc_id" {
 
 output "vpc_owner_id" {
   value = aws_vpc.my_vpc.owner_id
-
+ */
