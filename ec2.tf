@@ -5,7 +5,7 @@
 } */
 
 resource "aws_instance" "AWSServer" {
- // ami           = "ami-027be456e3593dc56"
+  ami           = "ami-027be456e3593dc56"
   instance_type = "t2.micro"
   key_name      = "jenkins"
   tags = {
