@@ -13,7 +13,7 @@ resource "aws_instance" "AWSServer" {
   }
 }
 
-output "public_ip" {
+/* output "public_ip" {
   value = "${aws_instance.AWSServer.public_ip}"
 }
 
@@ -23,4 +23,4 @@ output "private_ip" {
 
 output "ec2_id" {
   value = "${aws_instance.AWSServer.id}"
-}
+} */
