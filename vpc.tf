@@ -1,28 +1,29 @@
  resource "aws_vpc" "my_vpc" {
-  cidr_block = "192.168.0.0/16"
+  cidr_block = "${var.vpc-cidr}"
 
   tags = {
     Name = "my_vpc"
   }
 }
 
-resource "aws_subnet" "public" {
+resource "aws_subnet" "public_subnet" {
+  count = 2
   vpc_id            = aws_vpc.my_vpc.id
-  cidr_block        = "192.168.1.0/24"
-  availability_zone = "us-west-1a"
+  cidr_block        = "${element(public_cidr, count.index)}"
+  availability_zone = "${element(public_subnet, count.index)}"
   tags = {
-    Name = "public"
+    Name = "public_subnet ${(count.index+1)}"
   }
 }
 
-resource "aws_subnet" "private" {
+/* resource "aws_subnet" "private" {
   vpc_id            = aws_vpc.my_vpc.id
   cidr_block        = "192.168.2.0/24"
   availability_zone = "us-west-1b"
   tags = {
     Name = "private"
   }
-}
+} */
 
 resource "aws_internet_gateway" "IGW" {
   vpc_id = aws_vpc.my_vpc.id
