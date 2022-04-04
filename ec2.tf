@@ -1,15 +1,16 @@
 provider "aws" {
   region     = "us-west-1"
-  access_key = "AKIAXXFEOCX4P73ZBKI3"
-  secret_key = "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"
+  access_key = "AKIAXXFEOCX4KOUBVLHP"
+  secret_key = "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"
 }
 
 resource "aws_instance" "AWSServer" {
+  count = 3
   ami           = "ami-027be456e3593dc56"
   instance_type = "t2.micro"
   key_name      = "jenkins"
   tags = {
-    Name = "terraform_1"
+    Name = "terraform ${( count.index+1 )}"
   }
 }
 
