@@ -1,4 +1,4 @@
- /* resource "aws_vpc" "my_vpc" {
+ resource "aws_vpc" "my_vpc" {
   cidr_block = "192.168.0.0/16"
 
   tags = {
@@ -9,7 +9,7 @@
 resource "aws_subnet" "public" {
   vpc_id            = aws_vpc.my_vpc.id
   cidr_block        = "192.168.1.0/24"
-  availability_zone = "us-east-1a"
+  availability_zone = "us-west-1a"
   tags = {
     Name = "public"
   }
@@ -18,7 +18,7 @@ resource "aws_subnet" "public" {
 resource "aws_subnet" "private" {
   vpc_id            = aws_vpc.my_vpc.id
   cidr_block        = "192.168.2.0/24"
-  availability_zone = "us-east-1b"
+  availability_zone = "us-west-1b"
   tags = {
     Name = "private"
   }
@@ -51,12 +51,10 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public_rt.id
 }
 
-
-
 output "vpc_id" {
   value = aws_vpc.my_vpc.id
 }
 
 output "vpc_owner_id" {
   value = aws_vpc.my_vpc.owner_id
- */
+}
