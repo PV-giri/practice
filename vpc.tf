@@ -48,14 +48,14 @@ resource "aws_route_table" "public_rt" {
   }
 }
 resource "aws_route_table_association" "public" {
-  subnet_id      = aws_subnet.public.id
+  subnet_id      = aws_subnet.public_subnet.id
   route_table_id = aws_route_table.public_rt.id
 }
 
-output "vpc_id" {
+/* output "vpc_id" {
   value = aws_vpc.my_vpc.id
 }
 
 output "vpc_owner_id" {
   value = aws_vpc.my_vpc.owner_id
-}
+} */
