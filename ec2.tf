@@ -1,12 +1,12 @@
 provider "aws" {
-  region     = "us-west-1"
-  access_key = "AKIAXXFEOCX4KOUBVLHP"
-  secret_key = "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"
+  region     = "${var.region}"
+  access_key = "${var.access_key}"
+  secret_key = "${var.secret_key}"
 }
 
 resource "aws_instance" "AWSServer" {
   count = 3
-  ami           = "ami-027be456e3593dc56"
+  ami           = "${var.ami}"
   instance_type = "t2.micro"
   key_name      = "jenkins"
   tags = {
