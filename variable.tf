@@ -2,7 +2,7 @@ variable "region" {}
 variable "access_key" {}
 variable "secret_key" {}
 variable "ami" {}
-variable "vpc-cidr" {}
+variable "vpc_cidr" {}
 variable "public_subnet" {
     type = list
     default = ["us-west-1a","us-west-1b"]
