@@ -7,4 +7,3 @@ resource "aws_instance" "AWSServer" {
     Name = "terraform ${( count.index+1 )}"
   }
 }
-
