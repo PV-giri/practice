@@ -7,7 +7,4 @@ resource "aws_instance" "AWSServer" {
     Name = "terraform ${( count.index+1 )}"
   }
 }
-  depends_on = [
-    aws_iam_role_policy.example,
-  ]
-}
+
