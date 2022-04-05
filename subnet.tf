@@ -8,15 +8,6 @@ resource "aws_subnet" "public_subnet" {
   }
 }
 
-/* resource "aws_subnet" "private" {
-  vpc_id            = aws_vpc.my_vpc.id
-  cidr_block        = "192.168.2.0/24"
-  availability_zone = "us-west-1b"
-  tags = {
-    Name = "private"
-  }
-} */
-
 resource "aws_internet_gateway" "IGW" {
   vpc_id = aws_vpc.my_vpc.id
   tags = {
