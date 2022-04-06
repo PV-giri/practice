@@ -10,6 +10,6 @@ variable "public_subnet" {
 
 variable "public_cidr" {
     type = list
-    default = ["192.168.1.0/24","192.168.2.0/24"]
+    default = ["192.168.1.0/24","192.168.2.0/24""192.168.3.0/24","192.168.4.0/24",]
 }
 

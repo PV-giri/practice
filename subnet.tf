@@ -1,5 +1,5 @@
 resource "aws_subnet" "public_subnet" {
-  count = 2
+  count = "${length(var.public_subnet)}"
   vpc_id            = aws_vpc.my_vpc.id
   cidr_block        = "${element(var.public_cidr, count.index)}"
   availability_zone = "${element(var.public_subnet, count.index)}"
@@ -31,8 +31,7 @@ resource "aws_route_table" "public_rt" {
   }
 }
 resource "aws_route_table_association" "public" {
-  count = 2
-  //subnet_id      = aws_subnet.public_subnet.id  
+  count = "${length(var.public_subnet)}"
   subnet_id      = "${element(aws_subnet.public_subnet.*.id, count.index)}" 
   route_table_id = aws_route_table.public_rt.id
 }
