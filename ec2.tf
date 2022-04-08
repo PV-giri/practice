@@ -10,6 +10,9 @@ resource "aws_instance" "AWSServer" {
 		sudo systemctl start apache2
 		sudo systemctl enable apache2
 	EOF */
+   lifecycle {
+    create_before_destroy = true
+  }
     tags = {
     Name = "terraform ${( count.index+1 )}"
   }
