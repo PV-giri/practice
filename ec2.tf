@@ -12,6 +12,7 @@ resource "aws_instance" "AWSServer" {
 	EOF */
    lifecycle {
     create_before_destroy = true
+    prevent_destroy = true
   }
     tags = {
     Name = "terraform ${( count.index+1 )}"
