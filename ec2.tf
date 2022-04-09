@@ -15,6 +15,7 @@ resource "aws_instance" "AWSServer" {
     prevent_destroy = false
     ignore_changes = [
       tags,
+    ]
   }
     tags = {
     Name = "terraform ${( count.index+1 )}"
