@@ -1,5 +1,5 @@
 resource "null_resource" "cluster" {
-  count = "${ var.Env == prod ? 3 : 1 }"
+  count = "${var.Env == "prod" ?  3:1}"
 
 provisioner "file" {
     content     = "script.sh"
