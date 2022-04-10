@@ -8,7 +8,7 @@ provisioner "file" {
         type =  "ssh"
         user = "ubuntu"
         private_key = "${file("jenkins.pem")}"
-        host = "${element(aws_instance.AWSServer.*.public_ip, count.index)}"
+        host = "${element(aws_instance.AWSServer.*.public_ip,count.index)}"
 
     }
   }  
