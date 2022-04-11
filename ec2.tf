@@ -1,5 +1,6 @@
 resource "aws_instance" "AWSServer" {
-  count = "${var.Env == "prod" ?  3:1}"
+  /* count = "${var.Env == "prod" ?  3:1}" */
+  count = 2
   ami           = "${var.ami}"
   instance_type = "t2.micro"
   key_name      = "jenkins"
@@ -19,6 +20,6 @@ resource "aws_instance" "AWSServer" {
   }
     tags = {
     Name = "terraform ${( count.index+1 )}"
-    Env = "${var.Env}"
+    /* Env = "${var.Env}" */
   }
 }

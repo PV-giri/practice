@@ -3,7 +3,7 @@ variable "access_key" {}
 variable "secret_key" {}
 variable "ami" {}
 variable "vpc_cidr" {}
-variable "Env" {}
+/* variable "Env" {} */
 variable "public_subnet" {
     type = list
     default = ["us-west-1a","us-west-1b"]
