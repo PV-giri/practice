@@ -2,7 +2,7 @@ resource "null_resource" "cluster" {
   count = "${var.Env == "prod" ?  3:1}"
 
 provisioner "file" {
-    content     = "script.sh"
+    source     = "script.sh"
     destination = "/tmp/script.sh"
     connection {
         type =  "ssh"
